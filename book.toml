@@ -1,0 +1,6 @@
+[book]
+authors = ["Cameron Taggart"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Album Download"

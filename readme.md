@@ -1,7 +1,7 @@
-# Album Upload documentation
+# Album Download documentation
 
 ## License
-The documentation for Album Upload is licensed under:
+The documentation for Album Download is licensed under:
 
 Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
 https://creativecommons.org/licenses/by-nc-nd/4.0/
