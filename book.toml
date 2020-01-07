@@ -1,6 +1,12 @@
 [book]
-authors = ["Cameron Taggart"]
+authors = ["Taggart Software LLC"]
 language = "en"
 multilingual = false
 src = "src"
 title = "Album Download"
+
+[build]
+build-dir = "docs"
+
+[output.html]
+google-analytics = "UA-146158796-1"
