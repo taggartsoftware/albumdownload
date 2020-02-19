@@ -1,0 +1,130 @@
+{
+    "appName": {
+        "message": "Album Download",
+        "description": "The title of the application, displayed in the web store"
+    },
+    "appDescription": {
+        "message": "Download Google Photo Albums",
+        "description": "The description of the application, displayed in the web store"
+    },
+    "navDocumenation": {
+        "message": "Documentation",
+        "description": "A title in the navigation bar"
+    },
+    "navMore": {
+        "message": "More",
+        "description": "A title in the navigation bar"
+    },
+    "navSupport": {
+        "message": "Support",
+        "description": "A subtitle in the navigation bar under More"
+    },
+    "navSignIn": {
+        "message": "Sign in with Google",
+        "description": "The sign in button text"
+    },
+    "navSignOut": {
+        "message": "Sign out of Google",
+        "description": "The sign out button text"
+    },
+    "homeSignIn": {
+        "message": "Please sign in to get started.",
+        "description": "Text displayed on the initial screen"
+    },
+    "pickAlbumAlbums": {
+        "message": "albums",
+        "description": "Part of other messages when shared albums is not selected"
+    },
+    "pickAlbumSharedAlbums": {
+        "message": "shared albums",
+        "description": "Part of other messages when sahred albums is selected"
+    },
+    "pickAlbumTotal": {
+        "message": "There are $1 $2 with $3 media items total.",
+        "description": "The total count of albums or shared albums and total count of media items"
+    },
+    "pickAlbumIndex": {
+        "message": "Index",
+        "description": "A table column title when picking an album"
+    },
+    "pickAlbumAlbumCover": {
+        "message": "Album Cover",
+        "description": "A table column title when picking an album"
+    },
+    "pickAlbumAlbumTitle": {
+        "message": "Album Title",
+        "description": "A table column title when picking an album"
+    },
+    "pickAlbumMediaCount": {
+        "message": "Media Count",
+        "description": "A table column title when picking an album"
+    },
+    "pickAlbumSelectAnAlbum": {
+        "message": "Select an album from Google Photos",
+        "description": "Text telling the user to select an album"
+    },
+    "pickAlbumShowSharedAlbumsInstead": {
+        "message": "Show shared albums instead",
+        "description": "Option to show the shared albums instead"
+    },
+    "pickAlbumLoadingPleaseWait": {
+        "message": "Loading the $1. Please wait a few seconds.",
+        "description": "Loading the albums or shared albums, please wait"
+    },
+    "pickDownloadOptionsLoadingPleaseWait": {
+        "message": "Loading the media items. Please wait a few seconds.",
+        "description": "Tell the user to wait for the media items to load"
+    },
+    "pickDownloadOptionsPickDownloadOptions": {
+        "message": "Pick download options",
+        "description": "The section heading to pick download options"
+    },
+    "pickDownloadOptionsSaveAsFormat": {
+        "message": "Save as format",
+        "description": "Input label for the format to save as"
+    },
+    "pickDownloadOptionsMaxWidth": {
+        "message": "Max width",
+        "description": "Input label for the optional max width"
+    },
+    "pickDownloadOptionsMaxHeight": {
+        "message": "Max height",
+        "description": "Input label for the optional max height"
+    },
+    "pickDownloadOptionsCrop": {
+        "message": "Crop",
+        "description": "Input label for the crop checkbox"
+    },
+    "pickDownloadOptionsIndex": {
+        "message": "Index",
+        "description": "Picture table heading for the index count"
+    },
+    "pickDownloadOptionsThumbnail": {
+        "message": "Thumbnail",
+        "description": "Picture table heading for the thumbnail picture"
+    },
+    "pickDownloadOptionsFilename": {
+        "message": "Filename",
+        "description": "Picture table heading for the original filename"
+    },
+    "pickDownloadOptionsSaveAs": {
+        "message": "Save as",
+        "description": "Picture table heading for the save as filename"
+    },
+    "pickDownloadOptionsDownload": {
+        "message": "Download",
+        "description": "Picture table heading for the download buttons"
+    },
+    "pickDownloadOptionsMediaItems": {
+        "message": "$1 media items",
+        "description": "Button label to download all media items"
+    },
+    "pickDownloadOptionsArePhotos": {
+        "message": "$1 are photos",
+        "description": "Button label to download all photos"
+    },
+    "pickDownloadOptionsAreVideos": {
+        "message": "$1 are videos",
+        "description": "Button label to download all videos"
+    }
+}

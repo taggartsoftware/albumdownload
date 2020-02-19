@@ -1,0 +1,98 @@
+{
+    "appName": {
+        "message": "Descarga del Álbum"
+    },
+    "appDescription": {
+        "message": "Descarga álbumes de Google Foto"
+    },
+    "navDocumenation": {
+        "message": "Documentación"
+    },
+    "navMore": {
+        "message": "Más"
+    },
+    "navSupport": {
+        "message": "Soporte"
+    },
+    "navSignIn": {
+        "message": "Iniciar sesión con Google"
+    },
+    "navSignOut": {
+        "message": "Cerrar sesión con Google"
+    },
+    "homeSignIn": {
+        "message": "Iniciar sesión para comenzar."
+    },
+    "pickAlbumAlbums": {
+        "message": "álbumes"
+    },
+    "pickAlbumSharedAlbums": {
+        "message": "álbumes compartidos"
+    },
+    "pickAlbumTotal": {
+        "message": "Hay $1 $2 con un total de artículos de $3."
+    },
+    "pickAlbumIndex": {
+        "message": "Índice"
+    },
+    "pickAlbumAlbumCover": {
+        "message": "Portada"
+    },
+    "pickAlbumAlbumTitle": {
+        "message": "Título del Álbum"
+    },
+    "pickAlbumMediaCount": {
+        "message": "Conteo de Artículos"
+    },
+    "pickAlbumSelectAnAlbum": {
+        "message": "Selección de álbum de Google Fotos"
+    },
+    "pickAlbumShowSharedAlbumsInstead": {
+        "message": "Mostrar álbumes compartidos"
+    },
+    "pickAlbumLoadingPleaseWait": {
+        "message": "Cargando $1. Espera unos segundos."
+    },
+    "pickDownloadOptionsLoadingPleaseWait": {
+        "message": "Cargando total de artículos. Espera unos segundos."
+    },
+    "pickDownloadOptionsPickDownloadOptions": {
+        "message": "Selección de opciones de descarga"
+    },
+    "pickDownloadOptionsSaveAsFormat": {
+        "message": "Selección de formato"
+    },
+    "pickDownloadOptionsMaxWidth": {
+        "message": "Anchura máxima"
+    },
+    "pickDownloadOptionsMaxHeight": {
+        "message": "Altura máxima"
+    },
+    "pickDownloadOptionsCrop": {
+        "message": "Recortar"
+    },
+    "pickDownloadOptionsIndex": {
+        "message": "Índice"
+    },
+    "pickDownloadOptionsThumbnail": {
+        "message": "Miniatura de Foto"
+    },
+    "pickDownloadOptionsFilename": {
+        "message": "Titulo"
+    },
+    "pickDownloadOptionsSaveAs": {
+        "message": "Guardar como"
+    },
+    "pickDownloadOptionsDownload": {
+        "message": "Descargar"
+    },
+    "pickDownloadOptionsMediaItems": {
+        "message": "$1 total de articulos"
+    },
+    "pickDownloadOptionsArePhotos": {
+        "message": "$1 son fotos"
+    },
+    "pickDownloadOptionsAreVideos": {
+        "message": "$1 son videos"
+    }
+}
