@@ -107,6 +107,10 @@
         "message": "Filename",
         "description": "Picture table heading for the original filename"
     },
+    "pickDownloadOptionsDescription": {
+        "message": "Description",
+        "description": "Picture table heading for the picture description"
+    },
     "pickDownloadOptionsSaveAs": {
         "message": "Save as",
         "description": "Picture table heading for the save as filename"
