@@ -80,6 +80,9 @@
     "pickDownloadOptionsFilename": {
         "message": "Titulo"
     },
+    "pickDownloadOptionsDescription": {
+        "message": "Descripción"
+    },
     "pickDownloadOptionsSaveAs": {
         "message": "Guardar como"
     },
