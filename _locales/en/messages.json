@@ -130,5 +130,22 @@
     "pickDownloadOptionsAreVideos": {
         "message": "$1 are videos",
         "description": "Button label to download all videos"
+    },
+    "licenseExpiredAlert": {
+        "message": "The license has expired. Please purchase a license to be able to download.",
+        "description": "The error message that is displayed in the banner and pops up when download is clicked if expired"
+    },
+    "licenseExpiredDetails": {
+        "message": "The $1 day free trial started $2 days ago and has expired.",
+        "description": "More details about the number of days for the expiration"
+    },
+    "licenseWarningAlert": {
+        "message": "The free trial will expire soon. Please purchase a license.",
+        "description": "The warning message that is displayed in the banner."
+    },
+    "licenseWarningDetails": {
+        "message": "The $1 day free trial started $2 days ago and will expire soon.",
+        "description": "More details about the number of days for the expiration"
     }
+
 }

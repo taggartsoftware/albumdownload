@@ -97,5 +97,17 @@
     },
     "pickDownloadOptionsAreVideos": {
         "message": "$1 son videos"
+    },
+    "licenseExpiredAlert": {
+        "message": "La licencia ha expirado. Compre una licencia para poder descargar."
+    },
+    "licenseExpiredDetails": {
+        "message": "La prueba gratuita de $1 día comenzó hace $2 días y ha expirado."
+    },
+    "licenseWarningAlert": {
+        "message": "La prueba gratuita caducará pronto. Por favor compre una licencia."
+    },
+    "licenseWarningDetails": {
+        "message": "La prueba gratuita de $1 día comenzó hace $2 días y vencerá pronto."
     }
 }
