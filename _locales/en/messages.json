@@ -146,6 +146,9 @@
     "licenseWarningDetails": {
         "message": "The $1 day free trial started $2 days ago and will expire soon.",
         "description": "More details about the number of days for the expiration"
+    },
+    "noLicense": {
+        "message": "No license found. Please purchase a license to be able to download.",
+        "description": "The error message that is displayed in the banner if no license is found"
     }
-
 }
