@@ -1,6 +1,9 @@
 # Album Download
 
-[Album Download](https://chrome.google.com/webstore/detail/album-download/mnaphpmipihkgnfkkhdadabcfeijmhpb) is a Chrome extension that is available from the Chrome Web Store. After a generous free trial, it costs about a cup of coffee per year. I built it because I store all my photos in Google Photos and I wanted an easier ways to share my photos.
+Album Download is a web browser extension that is available in the [Chrome Web Store](https://chrome.google.com/webstore/detail/album-download/mnaphpmipihkgnfkkhdadabcfeijmhpb). Buy a 6-month subscription for $3. I built it because I store all my photos in Google Photos and I wanted an easier ways to share them.
+
+<iframe src="http://localhost:8080/" title="Album Download Subscription" style="border:none;" width="100%">
+</iframe>
 
 ### Features
 - Preserve order of the organized album.
