@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="sidebar-visible no-js rust">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,22 +7,36 @@
         
         <meta name="robots" content="noindex" />
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
         <link rel="shortcut icon" href="favicon.png">
+        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
+        
         <link rel="stylesheet" href="css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -64,7 +78,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('light')
+            html.classList.remove('rust')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -82,8 +96,8 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Album Download</a></li><li class="expanded "><a href="privacy.html"><strong aria-hidden="true">2.</strong> Privacy Policy</a></li><li class="expanded "><a href="terms.html"><strong aria-hidden="true">3.</strong> Terms of Service</a></li><li class="expanded "><a href="support.html"><strong aria-hidden="true">4.</strong> Support</a></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Album Download</a></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">2.</strong> Change Log</a></li><li class="chapter-item expanded "><a href="privacy.html"><strong aria-hidden="true">3.</strong> Privacy Policy</a></li><li class="chapter-item expanded "><a href="terms.html"><strong aria-hidden="true">4.</strong> Terms of Service</a></li><li class="chapter-item expanded "><a href="support.html"><strong aria-hidden="true">5.</strong> Support</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -92,37 +106,38 @@
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">Album Download</h1>
+                    <h1 class="menu-title">Album Download</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
                     </div>
                 </div>
 
@@ -151,7 +166,10 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#album-download" id="album-download">Album Download</a></h1>
-<p><a href="https://chrome.google.com/webstore/detail/album-download/mnaphpmipihkgnfkkhdadabcfeijmhpb">Album Download</a> is a Chrome extension that is available from the Chrome Web Store. After a generous free trial, it costs about a cup of coffee per year. I built it because I store all my photos in Google Photos and I wanted an easier ways to share my photos.</p>
+<p>Album Download is a web browser extension that is available in the <a href="https://chrome.google.com/webstore/detail/album-download/mnaphpmipihkgnfkkhdadabcfeijmhpb">Chrome Web Store</a>. Buy a 6-month subscription for $3. I built it because I store all my photos in Google Photos and I wanted an easier ways to share them.</p>
+<p><em>New</em>: Subscriptions may be purchased below. After signing in to your Google account, a link will presented to pay for a subscription or to manage your existing subscription. The subscription will be associated with the Google Account you logged in with.</p>
+<iframe src="https://albumdownload.appspot.com/store" title="Album Download Subscription" style="border:none;" width="100%" height="50px">
+</iframe>
 <h3><a class="header" href="#features" id="features">Features</a></h3>
 <ul>
 <li>Preserve order of the organized album.</li>
@@ -160,13 +178,31 @@
 <li>Able to specify size and cropping.</li>
 </ul>
 <h3><a class="header" href="#" id=""></a></h3>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7zwBnAJojeI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h1><a class="header" href="#album-download-privacy-policy" id="album-download-privacy-policy">Album Download Privacy Policy</a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7zwBnAJojeI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h1><a class="header" href="#album-download-change-log" id="album-download-change-log">Album Download Change Log</a></h1>
+<h2><a class="header" href="#2021-07" id="2021-07">2021-07</a></h2>
+<p>Subscriptions may be purchased at <a href="https://albumdownload.ctaggart.com/">https://albumdownload.ctaggart.com/</a>. After signing into your Google account, a link will presented to pay for a subscription or to manage your existing subscription. The subscription will be associated with the Google Account you logged in with.</p>
+<h2><a class="header" href="#2021-02-01" id="2021-02-01">2021-02-01</a></h2>
+<p>Chrome Web Store <a href="https://developer.chrome.com/docs/webstore/cws-payments-deprecation/">disabled</a> all new payments and has listed Album Download as &quot;no longer available&quot;. Work to enable another payments system is not easy. See <a href="https://github.com/taggartsoftware/albumdownload/issues/25">issue #25</a>.</p>
+<h2><a class="header" href="#2020-12-01" id="2020-12-01">2020-12-01</a></h2>
+<p>Chrome Web Store <a href="https://developer.chrome.com/docs/webstore/cws-payments-deprecation/">disabled</a> all new free trials</p>
+<h2><a class="header" href="#2020-05" id="2020-05">2020-05</a></h2>
+<p>Published <a href="https://taggartsoftware.medium.com/album-download-1-0-8b187509f2e8">Album Download 1.0</a></p>
+<h2><a class="header" href="#2020-01" id="2020-01">2020-01</a></h2>
+<p>Published Album Download to the Chrome Web Store</p>
+<h1><a class="header" href="#album-download-privacy-policy" id="album-download-privacy-policy">Album Download Privacy Policy</a></h1>
 <p>Album Download is a Chrome extension that allows you to download photos and videos from Google Photos. Album Download does not store any additional private information. Please see the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
 <h1><a class="header" href="#album-download-terms-of-service" id="album-download-terms-of-service">Album Download Terms of Service</a></h1>
-<p>Copyright (C) 2020 Taggart Software LLC</p>
+<p>Copyright (C) 2020-2021 Taggart Software LLC</p>
 <p>The software is provided &quot;as is&quot;. It is not defect free.</p>
 <h1><a class="header" href="#album-download-support" id="album-download-support">Album Download Support</a></h1>
-<p>Go to <a href="https://github.com/ctaggart/albumdownload/issues">https://github.com/ctaggart/albumdownload/issues</a> to see a list of known bugs, report new bugs, or suggest other features. A GitHub issue is preferred, but you may also email support@ctaggart.com.</p>
+<h2><a class="header" href="#issues" id="issues">Issues</a></h2>
+<p>GitHub <a href="https://github.com/taggartsoftware/albumdownload/issues">issues</a> are used to track bugs reports and feature requests.</p>
+<h2><a class="header" href="#question-and-answers" id="question-and-answers">Question and Answers</a></h2>
+<p>Q: Why am I prompted to save each file?</p>
+<p>A: It is a browser settings that you can change at <a href="chrome://settings/downloads">chrome://settings/downloads</a>. See <a href="https://github.com/taggartsoftware/albumdownload/issues/17">issue #17</a> for more help.
+<img src="https://user-images.githubusercontent.com/80104/78944248-b33dec00-7a7a-11ea-874b-3f3b665a18a6.png"/></p>
+<h2><a class="header" href="#email" id="email">Email</a></h2>
+<p>The Issue Tracker is preferred, but you may also email <a href="mailto:support@ctaggart.com">support@ctaggart.com</a>.</p>
 
                     </main>
 
@@ -192,11 +228,11 @@
         
         <!-- Livereload script (if served using the cli tool) -->
         <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
             socket.onmessage = function (event) {
                 if (event.data === "reload") {
                     socket.close();
-                    location.reload(true); // force reload from server (not from cache)
+                    location.reload();
                 }
             };
 
@@ -226,10 +262,10 @@
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 
