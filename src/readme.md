@@ -4,7 +4,7 @@ Album Download is a web browser extension that is available in the [Chrome Web S
 
 *New*: Subscriptions may be purchased below. After signing in to your Google account, a link will presented to pay for a subscription or to manage your existing subscription. The subscription will be associated with the Google Account you logged in with.
 
-<iframe src="http://localhost:8080/store" title="Album Download Subscription" style="border:none;" width="100%" height="30px">
+<iframe src="https://albumdownload.appspot.com/store" title="Album Download Subscription" style="border:none;" width="100%" height="50px">
 </iframe>
 
 ### Features
