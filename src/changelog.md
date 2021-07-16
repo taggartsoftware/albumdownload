@@ -1,12 +1,12 @@
 # Album Download Change Log
 
 ## 2021-07
-Subscriptions may be purchased at [https://albumdownload.ctaggart.com/](https://albumdownload.ctaggart.com/). After signing into your Google account, a link will presented to pay for a subscription or to manage your existing subscription. The subscription will be associated with the Google Account you logged in with.
+[Album Download 2.0](https://chrome.google.com/webstore/detail/album-download/mnaphpmipihkgnfkkhdadabcfeijmhpb) now available in the Chrome Web Store. [Stripe](https://stripe.com/) is now used for payments. A subscription may be purchased at [https://albumdownload.ctaggart.com/](https://albumdownload.ctaggart.com/).
 
-## 2021-02-01
+## 2021-02
 Chrome Web Store [disabled](https://developer.chrome.com/docs/webstore/cws-payments-deprecation/) all new payments and has listed Album Download as "no longer available". Work to enable another payments system is not easy. See [issue #25](https://github.com/taggartsoftware/albumdownload/issues/25).
 
-## 2020-12-01
+## 2020-12
 Chrome Web Store [disabled](https://developer.chrome.com/docs/webstore/cws-payments-deprecation/) all new free trials
 
 ## 2020-05
