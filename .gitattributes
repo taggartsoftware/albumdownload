@@ -1,0 +1,5 @@
+# Use unix line endings everywhere, even on Windows
+* text=auto eol=lf
+
+# Mark everything in docs as generated
+docs/** linguist-generated=true
