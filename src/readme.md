@@ -1,13 +1,12 @@
 # Album Download
 
-<iframe src="https://albumdownload.appspot.com/store" title="Album Download Subscription" style="border:none;" width="100%" height="50px">
-</iframe>
+Album Download is a web browser extension that allows you to download images and videos from Google Photos in the order they are organized. You can download entire albums with a single click. A 6-month [subscription](./subscription.md) costs $3.
 
-After signing in to your Google account above, a link will presented to pay for a subscription or to manage your existing subscription.
+## Install
+Google Chrome is currently the only supported web browser.
+- Install [Album Download for Google Chrome](https://chrome.google.com/webstore/detail/album-download/mnaphpmipihkgnfkkhdadabcfeijmhpb)
 
-Album Download is a web browser extension that is available in the [Chrome Web Store](https://chrome.google.com/webstore/detail/album-download/mnaphpmipihkgnfkkhdadabcfeijmhpb). Buy a 6-month subscription for $3. I built it because I store all my photos in Google Photos and I wanted an easier ways to share them.
-
-### Features
+## Features
 - Preserve order of the organized album.
 - Shareable formats. The iPhone heic images are downloaded as jpg images and the mov videos as mp4 videos.
 - Able to specify naming.
