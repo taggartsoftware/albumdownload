@@ -1,4 +1,4 @@
-# Album Download Change Log
+# Change Log
 
 ## 2021-07
 [Album Download 2.0](https://chrome.google.com/webstore/detail/album-download/mnaphpmipihkgnfkkhdadabcfeijmhpb) now available in the Chrome Web Store. [Stripe](https://stripe.com/) is now used for payments. A subscription may be purchased at [https://albumdownload.ctaggart.com/](https://albumdownload.ctaggart.com/).
