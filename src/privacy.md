@@ -1,8 +1,23 @@
-# Album Download Privacy Policy
+# Privacy Policy
 
-Album Download is a web browser extension that allows you to download photos and videos from Google Photos. It is available for Google Chrome and Microsoft Edge web browsers. The commercial product requires a subscription. Stripe is used for payments and subscription management. In order to check for a subscription, Album Download stores the Google and Stripe identifiers.
+This privacy policy explains how Taggart Software LLC uses any personal information we collect about you when you use Album Download.
 
-## References
-- [Google Privacy Policy](https://policies.google.com/privacy)
-- [Stripe Privacy Policy](https://stripe.com/privacy)
-- [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement)
+## What information is collected about you?
+We collect your Google account ID and email address. 
+
+## How we use the information about you?
+We use the identifiers to check for a subscription.
+
+## With whom do we share your information?
+The information is stored in Google Cloud. It is shared with Stripe for payments and subscription management.
+
+## Changes to our privacy policy
+We place any updates on this web page. This policy was last updated on 2021-08-13.
+
+## How to contact us
+You can email us at [support@ctaggart.com](mailto:support@ctaggart.com) or write us at:
+```
+Taggart Software LLC
+945 McKinney St #12481
+Houston, TX 77002
+```

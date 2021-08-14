@@ -1,4 +1,4 @@
-# Album Download Terms of Service
+# Terms of Service
 
 Copyright (C) 2020-2021 Taggart Software LLC
 
