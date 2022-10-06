@@ -1,6 +1,6 @@
 # Change Log
 
-## 2012-08
+## 2021-08
 Album Download 2.1 is now available [for Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/album-download/cjbekmfjcobmcgglbghdhhklhnebdnhn).
 
 ## 2021-07
