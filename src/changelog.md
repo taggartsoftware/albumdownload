@@ -1,5 +1,8 @@
 # Change Log
 
+## 2024-02
+Version 2.2.0 contains a bug fix for [invalid filename characters](https://github.com/taggartsoftware/albumdownload/issues/44) and an update to [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3).
+
 ## 2021-08
 Album Download 2.1 is now available [for Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/album-download/cjbekmfjcobmcgglbghdhhklhnebdnhn).
 

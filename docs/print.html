@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js rust">
+<html lang="en" class="rust" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Album Download</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
         
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -33,15 +32,16 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,51 +57,82 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('rust')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Album Download</a></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">2.</strong> Change Log</a></li><li class="chapter-item expanded "><a href="privacy.html"><strong aria-hidden="true">3.</strong> Privacy Policy</a></li><li class="chapter-item expanded "><a href="terms.html"><strong aria-hidden="true">4.</strong> Terms of Service</a></li><li class="chapter-item expanded "><a href="support.html"><strong aria-hidden="true">5.</strong> Support</a></li><li class="chapter-item expanded "><a href="subscription.html"><strong aria-hidden="true">6.</strong> Subscription</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="checkout-success.html"><strong aria-hidden="true">6.1.</strong> Checkout Success</a></li><li class="chapter-item expanded "><a href="checkout-cancelled.html"><strong aria-hidden="true">6.2.</strong> Checkout Cancelled</a></li></ol></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
@@ -133,7 +164,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -162,12 +193,14 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7zwBnAJojeI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 id="-1"><a class="header" href="#-1"></a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xNySB1UvqT0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div style="break-before: page; page-break-before: always;"></div><h1 id="change-log"><a class="header" href="#change-log">Change Log</a></h1>
+<h2 id="2024-02"><a class="header" href="#2024-02">2024-02</a></h2>
+<p>Version 2.2.0 contains a bug fix for <a href="https://github.com/taggartsoftware/albumdownload/issues/44">invalid filename characters</a> and an update to <a href="https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3">Manifest V3</a>.</p>
 <h2 id="2021-08"><a class="header" href="#2021-08">2021-08</a></h2>
 <p>Album Download 2.1 is now available <a href="https://microsoftedge.microsoft.com/addons/detail/album-download/cjbekmfjcobmcgglbghdhhklhnebdnhn">for Microsoft Edge</a>.</p>
 <h2 id="2021-07"><a class="header" href="#2021-07">2021-07</a></h2>
 <p><a href="https://chrome.google.com/webstore/detail/album-download/mnaphpmipihkgnfkkhdadabcfeijmhpb">Album Download 2.0</a> now available in the Chrome Web Store. <a href="https://stripe.com/">Stripe</a> is now used for payments. A link to pay is available in the app.</p>
 <h2 id="2021-02"><a class="header" href="#2021-02">2021-02</a></h2>
-<p>Chrome Web Store <a href="https://developer.chrome.com/docs/webstore/cws-payments-deprecation/">disabled</a> all new payments and has listed Album Download as &quot;no longer available&quot;. Work to enable another payments system is not easy. See <a href="https://github.com/taggartsoftware/albumdownload/issues/25">issue #25</a>.</p>
+<p>Chrome Web Store <a href="https://developer.chrome.com/docs/webstore/cws-payments-deprecation/">disabled</a> all new payments and has listed Album Download as "no longer available". Work to enable another payments system is not easy. See <a href="https://github.com/taggartsoftware/albumdownload/issues/25">issue #25</a>.</p>
 <h2 id="2020-12"><a class="header" href="#2020-12">2020-12</a></h2>
 <p>Chrome Web Store <a href="https://developer.chrome.com/docs/webstore/cws-payments-deprecation/">disabled</a> all new free trials</p>
 <h2 id="2020-05"><a class="header" href="#2020-05">2020-05</a></h2>
@@ -177,7 +210,7 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="privacy-policy"><a class="header" href="#privacy-policy">Privacy Policy</a></h1>
 <p>This privacy policy explains how Taggart Software LLC uses any personal information we collect about you when you use Album Download.</p>
 <h2 id="what-information-is-collected-about-you"><a class="header" href="#what-information-is-collected-about-you">What information is collected about you?</a></h2>
-<p>We collect your Google account ID and email address. </p>
+<p>We collect your Google account ID and email address.</p>
 <h2 id="how-we-use-the-information-about-you"><a class="header" href="#how-we-use-the-information-about-you">How we use the information about you?</a></h2>
 <p>We use the identifiers to check for a subscription.</p>
 <h2 id="with-whom-do-we-share-your-information"><a class="header" href="#with-whom-do-we-share-your-information">With whom do we share your information?</a></h2>
@@ -191,8 +224,8 @@
 Houston, TX 77002
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="terms-of-service"><a class="header" href="#terms-of-service">Terms of Service</a></h1>
-<p>Copyright (C) 2020-2021 Taggart Software LLC</p>
-<p>The software is provided &quot;as is&quot;. It is not defect free.</p>
+<p>Copyright (C) 2020-2024 Taggart Software LLC</p>
+<p>The software is provided "as is". It is not defect free.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="album-download-support"><a class="header" href="#album-download-support">Album Download Support</a></h1>
 <h2 id="issues"><a class="header" href="#issues">Issues</a></h2>
 <p>GitHub <a href="https://github.com/taggartsoftware/albumdownload/issues">issues</a> are used to track bugs reports and feature requests.</p>
@@ -202,12 +235,12 @@ Houston, TX 77002
 <h4 id="why-am-i-prompted-to-save-each-file"><a class="header" href="#why-am-i-prompted-to-save-each-file">Why am I prompted to save each file?</a></h4>
 <p>It is a browser settings that you can change at <a href="chrome://settings/downloads">chrome://settings/downloads</a>. See <a href="https://github.com/taggartsoftware/albumdownload/issues/17">issue #17</a> for more help.
 <img src="https://user-images.githubusercontent.com/80104/78944248-b33dec00-7a7a-11ea-874b-3f3b665a18a6.png"/></p>
-<h4 id="why-is-it-downloading-with-the-name-in-save-as"><a class="header" href="#why-is-it-downloading-with-the-name-in-save-as">Why is it downloading with the name in &quot;Save as&quot;?</a></h4>
+<h4 id="why-is-it-downloading-with-the-name-in-save-as"><a class="header" href="#why-is-it-downloading-with-the-name-in-save-as">Why is it downloading with the name in "Save as"?</a></h4>
 <p>A few customers have reported this issue. It is usually caused by another extension being installed. See <a href="https://github.com/taggartsoftware/albumdownload/issues/20">issue #20</a> for more help.</p>
 <h4 id="can-i-use-album-download-in-both-google-chrome-and-microsoft-edge-web-browsers"><a class="header" href="#can-i-use-album-download-in-both-google-chrome-and-microsoft-edge-web-browsers">Can I use Album Download in both Google Chrome and Microsoft Edge web browsers?</a></h4>
 <p>Yes, a subscription allows you to use it in either web browser. If you are having problems with Album Download in one web browser, please try the other.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="subscription"><a class="header" href="#subscription">Subscription</a></h1>
-<p>Payments and subscription plans for Album Download are managed by <a href="https://stripe.com/">Stripe</a>. After you install Album Download and sign in to Google, click on the link titled: &quot;Click here to buy a subscription. It is required to download.&quot;:</p>
+<p>Payments and subscription plans for Album Download are managed by <a href="https://stripe.com/">Stripe</a>. After you install Album Download and sign in to Google, click on the link titled: "Click here to buy a subscription. It is required to download.":</p>
 <p><img src="https://user-images.githubusercontent.com/80104/126906686-b12ab84d-ad6f-4aa7-ad55-167783fd649e.png" alt="image" /></p>
 <p>Clicking the link opens a new window to begin checkout:</p>
 <p><img src="https://user-images.githubusercontent.com/80104/126906770-662c2167-082a-4664-803f-b5c91c1a509d.png" alt="image" /></p>
@@ -215,7 +248,7 @@ Houston, TX 77002
 <p><img src="https://user-images.githubusercontent.com/80104/126906851-4a75e651-93d7-4ea8-8163-0d6007e9a5d4.png" alt="image" /></p>
 <p>If you then refresh the Album Download page, the warning will be gone and you will be able download:</p>
 <p><img src="https://user-images.githubusercontent.com/80104/126906884-c3a370c9-f67f-4fe6-bf92-dd0b8d01ef47.png" alt="image" /></p>
-<p>To manage your subscription plan, select the &quot;Manage Subscription&quot; menu item:</p>
+<p>To manage your subscription plan, select the "Manage Subscription" menu item:</p>
 <p><img src="https://user-images.githubusercontent.com/80104/126906921-7be2f781-6b81-4df5-a2e6-04c1ac6e5ee6.png" alt="image" /></p>
 <p>You can cancel your subscription plan at any time:</p>
 <p><img src="https://user-images.githubusercontent.com/80104/126906967-ccb9c2d3-fd0a-44c3-831b-922a5e16ece1.png" alt="image" /></p>
@@ -223,7 +256,7 @@ Houston, TX 77002
 <p><img src="https://user-images.githubusercontent.com/80104/126907030-931ffeae-959b-49ed-80b9-8386ddecd0f5.png" alt="image" /></p>
 <p>It will show the date that it will be cancelled:</p>
 <p><img src="https://user-images.githubusercontent.com/80104/126907063-f0de11a6-95fc-4424-a963-8425c8193f2f.png" alt="image" /></p>
-<p>You can click &quot;Renew plan&quot; if you no longer wish for it to cancel:</p>
+<p>You can click "Renew plan" if you no longer wish for it to cancel:</p>
 <p><img src="https://user-images.githubusercontent.com/80104/126907087-7ce673fa-0973-4445-a65f-5dedbfc3f5e5.png" alt="image" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="checkout-success"><a class="header" href="#checkout-success">Checkout Success</a></h1>
 <p>Thank you for paying for an Album Download subscription. Refresh the Album Download page to access the full functionality. Please <a href="./support.html">let us know</a> if there is a way we can improve the product.</p>
@@ -249,7 +282,7 @@ Houston, TX 77002
 
 
         <!-- Google Analytics Tag -->
-        <script type="text/javascript">
+        <script>
             var localAddrs = ["localhost", "127.0.0.1", ""];
 
             // make sure we don't activate google analytics if the developer is
@@ -266,26 +299,27 @@ Houston, TX 77002
         </script>
 
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
 
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
 
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
 
+    </div>
     </body>
 </html>
