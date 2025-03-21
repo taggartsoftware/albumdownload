@@ -9,12 +9,8 @@ Album Download is available for Google Chrome and Microsoft Edge web browsers.
 
 ## Features
 - Preserve order of the organized album.
-- Shareable formats. The iPhone heic images are downloaded as jpg images and the mov videos as mp4 videos.
 - Able to specify naming.
 - Able to specify size and cropping.
 
 ##
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7zwBnAJojeI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-##
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xNySB1UvqT0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/16elnma0I-E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

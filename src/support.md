@@ -8,7 +8,6 @@ GitHub [issues](https://github.com/taggartsoftware/albumdownload/issues) are use
 
 The Issue Tracker is preferred, but you may also email [support@ctaggart.com](mailto:support@ctaggart.com).
 
-
 ## Question and Answers
 
 #### Why am I prompted to save each file?
