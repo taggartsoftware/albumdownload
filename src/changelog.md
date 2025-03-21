@@ -1,7 +1,7 @@
 # Change Log
 
 ## 2025-03
-Version 3.0.0 automates downloading using the Google Photos website instead of the Library API. It is a major change. Google [announced](https://developers.googleblog.com/en/google-photos-picker-api-launch-and-library-api-updates/) in September that the Google Photos Library API would no longer allow "accessing albums and media items not uploaded by your app" after March 31, 2025. A major benefit is the photos downloaded are now the original size. Also, the location data is included if it is shared with you. See [how Google Photos protects your location data](https://support.google.com/photos/answer/11190100).
+Version 3.0.0 automates downloading using the Google Photos website instead of the Library API. It is a major change. Google [announced](https://developers.googleblog.com/en/google-photos-picker-api-launch-and-library-api-updates/) in September that the Google Photos Library API would no longer allow "accessing albums and media items not uploaded by your app" after March 31. A benefit is the photos downloaded are now the original size. Also, the location data is included if it is shared with you. See [how Google Photos protects your location data](https://support.google.com/photos/answer/11190100).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/16elnma0I-E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
