@@ -1,2 +1,0 @@
-# Checkout Success
-Thank you for paying for an Album Download subscription. Refresh the Album Download page to access the full functionality. Please [let us know](./support.md) if there is a way we can improve the product.
