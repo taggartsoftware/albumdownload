@@ -1,241 +1,72 @@
-<!DOCTYPE HTML>
-<html lang="en" class="rust sidebar-visible" dir="ltr">
-    <head>
-        <!-- Book generated using mdBook -->
-        <meta charset="UTF-8">
-        <title>Subscription - Album Download</title>
-
-
-        <!-- Custom HTML head -->
-
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff">
-
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
-
-        <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
-
-        <!-- Custom theme stylesheets -->
-
-
-        <!-- Provide site root to javascript -->
-        <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
-        </script>
-        <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
-    </head>
-    <body>
-    <div id="body-container">
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script>
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
-
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script>
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
-            const html = document.documentElement;
-            html.classList.remove('rust')
-            html.classList.add(theme);
-            html.classList.add("js");
-        </script>
-
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            } else {
-                sidebar = 'hidden';
-            }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <!-- populated by js -->
-            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
-            <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
-            </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
-                <div class="sidebar-resize-indicator"></div>
-            </div>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
-                    <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-
-                    <h1 class="menu-title">Album Download</h1>
-
-                    <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
-                        </a>
-
-                    </div>
-                </div>
-
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
-
-                <div id="content" class="content">
-                    <main>
-                        <h1 id="subscription"><a class="header" href="#subscription">Subscription</a></h1>
-<p>Payments and subscription plans for Album Download are managed by <a href="https://stripe.com/">Stripe</a>. After you install Album Download and sign in to Google, click on the link titled: "Click here to buy a subscription. It is required to download.":</p>
-<p><img src="https://user-images.githubusercontent.com/80104/126906686-b12ab84d-ad6f-4aa7-ad55-167783fd649e.png" alt="image" /></p>
-<p>Clicking the link opens a new window to begin checkout:</p>
-<p><img src="https://user-images.githubusercontent.com/80104/126906770-662c2167-082a-4664-803f-b5c91c1a509d.png" alt="image" /></p>
-<p>If checkout is successful, it redirects to:</p>
-<p><img src="https://user-images.githubusercontent.com/80104/126906851-4a75e651-93d7-4ea8-8163-0d6007e9a5d4.png" alt="image" /></p>
-<p>If you then refresh the Album Download page, the warning will be gone and you will be able download:</p>
-<p><img src="https://user-images.githubusercontent.com/80104/126906884-c3a370c9-f67f-4fe6-bf92-dd0b8d01ef47.png" alt="image" /></p>
-<p>To manage your subscription plan, select the "Manage Subscription" menu item:</p>
-<p><img src="https://user-images.githubusercontent.com/80104/126906921-7be2f781-6b81-4df5-a2e6-04c1ac6e5ee6.png" alt="image" /></p>
-<p>You can cancel your subscription plan at any time:</p>
-<p><img src="https://user-images.githubusercontent.com/80104/126906967-ccb9c2d3-fd0a-44c3-831b-922a5e16ece1.png" alt="image" /></p>
-<p>You will still be able to download until the end of the billing period, but the plan will not automatically renew:</p>
-<p><img src="https://user-images.githubusercontent.com/80104/126907030-931ffeae-959b-49ed-80b9-8386ddecd0f5.png" alt="image" /></p>
-<p>It will show the date that it will be cancelled:</p>
-<p><img src="https://user-images.githubusercontent.com/80104/126907063-f0de11a6-95fc-4424-a963-8425c8193f2f.png" alt="image" /></p>
-<p>You can click "Renew plan" if you no longer wish for it to cancel:</p>
-<p><img src="https://user-images.githubusercontent.com/80104/126907087-7ce673fa-0973-4445-a65f-5dedbfc3f5e5.png" alt="image" /></p>
-
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="support.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-
-                            <a rel="next prefetch" href="checkout-success.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
-            </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="support.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-
-                    <a rel="next prefetch" href="checkout-success.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-            </nav>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscription - Album Download</title>
+  <meta property="og:title" content="Subscription - Album Download">
+  <meta name="description" content="How to purchase, activate, manage, cancel, or renew your Album Download subscription.">
+  <meta property="og:description" content="How to purchase, activate, manage, cancel, or renew your Album Download subscription.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Album Download">
+  <meta property="og:image" content="https://albumdownload.ctaggart.com/albumdownload_icon_128.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/albumdownload_icon_128.png">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/styles.css?v=7">
+  <script>
+    if (["localhost", "127.0.0.1", ""].indexOf(window.location.hostname) === -1) {
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=G-6EJCM101V4";
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-6EJCM101V4");
+    }
+  </script>
+</head>
+<body>
+  <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle-input" aria-hidden="true">
+  <header class="mobile-topbar">
+    <label for="sidebar-toggle" class="sidebar-toggle-btn" title="Toggle navigation" aria-label="Toggle navigation">&#9776;</label>
+    <a href="/" class="brand">
+      <img src="/albumdownload_icon_128.png" alt="Album Download icon" class="brand-icon" width="28" height="28">
+      <span>Album Download</span>
+    </a>
+  </header>
+  <label for="sidebar-toggle" class="sidebar-backdrop" aria-hidden="true"></label>
+  <div class="app-shell">
+    <aside class="site-sidebar" aria-label="Table of contents">
+      <a href="/" class="sidebar-brand">
+        <img src="/albumdownload_icon_128.png" alt="Album Download icon" class="brand-icon" width="32" height="32">
+        <span>Album Download</span>
+      </a>
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <a href="/" class="sidebar-link">Home</a>
+        <a href="/changelog.html" class="sidebar-link">Change Log</a>
+        <a href="/privacy.html" class="sidebar-link">Privacy Policy</a>
+        <a href="/terms.html" class="sidebar-link">Terms of Service</a>
+        <a href="/support.html" class="sidebar-link">Support</a>
+        <a href="/subscription.html" class="sidebar-link sidebar-link-active">Subscription</a>
+      </nav>
+    </aside>
+    <div class="site-content-wrap">
+      <main class="site-main">
+<div><header class="page-hero"><div class="container-narrow"><h1 class="page-title">Subscription</h1><p class="page-subtitle">How to purchase, activate, manage, cancel, or renew your Album Download subscription.</p></div></header><section class="section"><div class="container-narrow"><article class="prose-card" id="purchase"><h2>How to Purchase &amp; Activate Your Subscription</h2><p>Payments and subscription plans for Album Download are managed by Stripe.</p><h3>Step 1: Click the Subscription Link in the Extension</h3><p>After you install Album Download and sign in with your Google account, click on the link titled: "Click here to buy a subscription. It is required to download.":</p><figure class="screenshot-figure"><img class="screenshot-img" src="https://user-images.githubusercontent.com/80104/126906686-b12ab84d-ad6f-4aa7-ad55-167783fd649e.png" alt="Album Download showing link to buy a subscription"><figcaption class="screenshot-caption">Click "Click here to buy a subscription. It is required to download." inside Album Download.</figcaption></figure><h3>Step 2: Complete Checkout via Stripe</h3><p>Clicking the link opens a new window to begin checkout:</p><figure class="screenshot-figure"><img class="screenshot-img" src="https://user-images.githubusercontent.com/80104/126906770-662c2167-082a-4664-803f-b5c91c1a509d.png" alt="Stripe checkout window for Album Download"><figcaption class="screenshot-caption">Complete your subscription payment securely on Stripe.</figcaption></figure><h3>Step 3: Checkout Confirmation</h3><p>If checkout is successful, it redirects to the confirmation page:</p><figure class="screenshot-figure"><img class="screenshot-img" src="https://user-images.githubusercontent.com/80104/126906851-4a75e651-93d7-4ea8-8163-0d6007e9a5d4.png" alt="Checkout success page"><figcaption class="screenshot-caption">Stripe redirects to the confirmation page as soon as your subscription is active.</figcaption></figure><h3>Step 4: Refresh the Album Download Tab</h3><div class="callout callout-success"><div class="callout-title">Important: Reload the Extension Tab After Checkout</div><div class="callout-body"><p>If you then refresh the Album Download page, the warning will be gone and you will be able to download immediately!</p></div></div><figure class="screenshot-figure"><img class="screenshot-img" src="https://user-images.githubusercontent.com/80104/126906884-c3a370c9-f67f-4fe6-bf92-dd0b8d01ef47.png" alt="Album Download unlocked and ready to download after refreshing"><figcaption class="screenshot-caption">After refreshing the Album Download tab, the Download button is active.</figcaption></figure></article><article class="prose-card" id="manage"><h2>How to Manage, Cancel, or Renew Your Subscription</h2><p>To manage your subscription plan, select the "Manage Subscription" menu item inside the Album Download extension:</p><figure class="screenshot-figure"><img class="screenshot-img" src="https://user-images.githubusercontent.com/80104/126906921-7be2f781-6b81-4df5-a2e6-04c1ac6e5ee6.png" alt="Manage Subscription menu item in Album Download"><figcaption class="screenshot-caption">Open the menu in Album Download and select "Manage Subscription".</figcaption></figure><h3>Canceling Your Plan Anytime</h3><p>You can cancel your subscription plan at any time through the Stripe Customer Portal:</p><figure class="screenshot-figure"><img class="screenshot-img" src="https://user-images.githubusercontent.com/80104/126906967-ccb9c2d3-fd0a-44c3-831b-922a5e16ece1.png" alt="Stripe portal showing Cancel plan button"><figcaption class="screenshot-caption">Click "Cancel plan" in the Stripe Customer Portal.</figcaption></figure><p>You will still be able to download until the end of the billing period, but the plan will not automatically renew:</p><figure class="screenshot-figure"><img class="screenshot-img" src="https://user-images.githubusercontent.com/80104/126907030-931ffeae-959b-49ed-80b9-8386ddecd0f5.png" alt="Confirming cancellation in Stripe portal"><figcaption class="screenshot-caption">Confirm cancellation — your access continues through the end of your paid period.</figcaption></figure><p>It will show the exact date that it will be cancelled:</p><figure class="screenshot-figure"><img class="screenshot-img" src="https://user-images.githubusercontent.com/80104/126907063-f0de11a6-95fc-4424-a963-8425c8193f2f.png" alt="Stripe portal showing scheduled cancellation date"><figcaption class="screenshot-caption">Your scheduled cancellation date is clearly displayed.</figcaption></figure><h3>Renewing a Cancelled Plan</h3><p>You can click "Renew plan" if you no longer wish for it to cancel:</p><figure class="screenshot-figure"><img class="screenshot-img" src="https://user-images.githubusercontent.com/80104/126907087-7ce673fa-0973-4445-a65f-5dedbfc3f5e5.png" alt="Renew plan button in Stripe portal"><figcaption class="screenshot-caption">Click "Renew plan" at any time before expiration to keep your subscription active.</figcaption></figure></article></div></section></div>      </main>
+      <footer class="site-footer">
+        <div class="container-narrow footer-bottom">
+          <div>&copy; 2020&ndash;2026 Taggart Software LLC</div>
+          <div class="footer-inline-links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <span>&middot;</span>
+            <a href="/terms.html">Terms of Service</a>
+            <span>&middot;</span>
+            <a href="/support.html">Support</a>
+          </div>
         </div>
-
-
-        <!-- Google Analytics Tag -->
-        <script>
-            var localAddrs = ["localhost", "127.0.0.1", ""];
-
-            // make sure we don't activate google analytics if the developer is
-            // inspecting the book locally...
-            if (localAddrs.indexOf(document.location.hostname) === -1) {
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-                ga('create', 'UA-146158796-1', 'auto');
-                ga('send', 'pageview');
-            }
-        </script>
-
-
-        <script>
-            window.playground_copyable = true;
-        </script>
-
-
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
-
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
-
-        <!-- Custom JS scripts -->
-
-
+      </footer>
     </div>
-    </body>
+  </div>
+</body>
 </html>

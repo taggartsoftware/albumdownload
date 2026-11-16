@@ -1,235 +1,72 @@
-<!DOCTYPE HTML>
-<html lang="en" class="rust sidebar-visible" dir="ltr">
-    <head>
-        <!-- Book generated using mdBook -->
-        <meta charset="UTF-8">
-        <title>Support - Album Download</title>
-
-
-        <!-- Custom HTML head -->
-
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff">
-
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
-
-        <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
-
-        <!-- Custom theme stylesheets -->
-
-
-        <!-- Provide site root to javascript -->
-        <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
-        </script>
-        <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
-    </head>
-    <body>
-    <div id="body-container">
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script>
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
-
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script>
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
-            const html = document.documentElement;
-            html.classList.remove('rust')
-            html.classList.add(theme);
-            html.classList.add("js");
-        </script>
-
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            } else {
-                sidebar = 'hidden';
-            }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <!-- populated by js -->
-            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
-            <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
-            </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
-                <div class="sidebar-resize-indicator"></div>
-            </div>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
-                    <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-
-                    <h1 class="menu-title">Album Download</h1>
-
-                    <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
-                        </a>
-
-                    </div>
-                </div>
-
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
-
-                <div id="content" class="content">
-                    <main>
-                        <h1 id="album-download-support"><a class="header" href="#album-download-support">Album Download Support</a></h1>
-<h2 id="issues"><a class="header" href="#issues">Issues</a></h2>
-<p>GitHub <a href="https://github.com/taggartsoftware/albumdownload/issues">issues</a> are used to track bugs reports and feature requests.</p>
-<h2 id="email"><a class="header" href="#email">Email</a></h2>
-<p>The Issue Tracker is preferred, but you may also email <a href="mailto:support@ctaggart.com">support@ctaggart.com</a>.</p>
-<h2 id="question-and-answers"><a class="header" href="#question-and-answers">Question and Answers</a></h2>
-<h4 id="why-am-i-prompted-to-save-each-file"><a class="header" href="#why-am-i-prompted-to-save-each-file">Why am I prompted to save each file?</a></h4>
-<p>It is a browser settings that you can change at <a href="chrome://settings/downloads">chrome://settings/downloads</a>. See <a href="https://github.com/taggartsoftware/albumdownload/issues/17">issue #17</a> for more help.
-<img src="https://user-images.githubusercontent.com/80104/78944248-b33dec00-7a7a-11ea-874b-3f3b665a18a6.png"/></p>
-<h4 id="why-is-it-downloading-with-the-name-in-save-as"><a class="header" href="#why-is-it-downloading-with-the-name-in-save-as">Why is it downloading with the name in "Save as"?</a></h4>
-<p>A few customers have reported this issue. It is usually caused by another extension being installed. See <a href="https://github.com/taggartsoftware/albumdownload/issues/20">issue #20</a> for more help.</p>
-<h4 id="can-i-use-album-download-in-both-google-chrome-and-microsoft-edge-web-browsers"><a class="header" href="#can-i-use-album-download-in-both-google-chrome-and-microsoft-edge-web-browsers">Can I use Album Download in both Google Chrome and Microsoft Edge web browsers?</a></h4>
-<p>Yes, a subscription allows you to use it in either web browser. If you are having problems with Album Download in one web browser, please try the other.</p>
-
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="terms.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-
-                            <a rel="next prefetch" href="subscription.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
-            </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="terms.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-
-                    <a rel="next prefetch" href="subscription.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-            </nav>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support - Album Download</title>
+  <meta property="og:title" content="Support - Album Download">
+  <meta name="description" content="Support and questions and answers for Album Download.">
+  <meta property="og:description" content="Support and questions and answers for Album Download.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Album Download">
+  <meta property="og:image" content="https://albumdownload.ctaggart.com/albumdownload_icon_128.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/albumdownload_icon_128.png">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/styles.css?v=7">
+  <script>
+    if (["localhost", "127.0.0.1", ""].indexOf(window.location.hostname) === -1) {
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=G-6EJCM101V4";
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-6EJCM101V4");
+    }
+  </script>
+</head>
+<body>
+  <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle-input" aria-hidden="true">
+  <header class="mobile-topbar">
+    <label for="sidebar-toggle" class="sidebar-toggle-btn" title="Toggle navigation" aria-label="Toggle navigation">&#9776;</label>
+    <a href="/" class="brand">
+      <img src="/albumdownload_icon_128.png" alt="Album Download icon" class="brand-icon" width="28" height="28">
+      <span>Album Download</span>
+    </a>
+  </header>
+  <label for="sidebar-toggle" class="sidebar-backdrop" aria-hidden="true"></label>
+  <div class="app-shell">
+    <aside class="site-sidebar" aria-label="Table of contents">
+      <a href="/" class="sidebar-brand">
+        <img src="/albumdownload_icon_128.png" alt="Album Download icon" class="brand-icon" width="32" height="32">
+        <span>Album Download</span>
+      </a>
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <a href="/" class="sidebar-link">Home</a>
+        <a href="/changelog.html" class="sidebar-link">Change Log</a>
+        <a href="/privacy.html" class="sidebar-link">Privacy Policy</a>
+        <a href="/terms.html" class="sidebar-link">Terms of Service</a>
+        <a href="/support.html" class="sidebar-link sidebar-link-active">Support</a>
+        <a href="/subscription.html" class="sidebar-link">Subscription</a>
+      </nav>
+    </aside>
+    <div class="site-content-wrap">
+      <main class="site-main">
+<div><header class="page-hero"><div class="container-narrow"><h1 class="page-title">Support</h1><p class="page-subtitle">Reach out by email or GitHub issues, or check common questions below.</p></div></header><section class="section"><div class="container-narrow"><article class="prose-card" id="contact"><h2>Email</h2><p>You may email <a href="mailto:support@ctaggart.com">support@ctaggart.com</a>.</p><h2>Issues</h2><p>GitHub <a href="https://github.com/taggartsoftware/albumdownload/issues" rel="noopener noreferrer" target="_blank">issues</a> are used to track bug reports and feature requests.</p></article><article class="prose-card" id="faq"><h2>Question and Answers</h2><div class="faq-list"><details class="faq-item" open=""><summary class="faq-question">Why am I prompted to save each file?</summary><div class="faq-answer"><p>It is a browser setting that you can change at <code>chrome://settings/downloads</code>. See <a href="https://github.com/taggartsoftware/albumdownload/issues/17" rel="noopener noreferrer" target="_blank">issue #17</a> for more help.</p><figure class="screenshot-figure"><img class="screenshot-img" src="https://user-images.githubusercontent.com/80104/78944248-b33dec00-7a7a-11ea-874b-3f3b665a18a6.png" alt="Chrome downloads settings"></figure></div></details><details class="faq-item" open=""><summary class="faq-question">Why is it downloading with the name in "Save as"?</summary><div class="faq-answer"><p>A few customers have reported this issue. It is usually caused by another extension being installed. See <a href="https://github.com/taggartsoftware/albumdownload/issues/20" rel="noopener noreferrer" target="_blank">issue #20</a> for more help.</p></div></details><details class="faq-item" open=""><summary class="faq-question">Can I use Album Download in both Google Chrome and Microsoft Edge web browsers?</summary><div class="faq-answer"><p>Yes, a subscription allows you to use it in either web browser. If you are having problems with Album Download in one web browser, please try the other.</p></div></details></div></article></div></section></div>      </main>
+      <footer class="site-footer">
+        <div class="container-narrow footer-bottom">
+          <div>&copy; 2020&ndash;2026 Taggart Software LLC</div>
+          <div class="footer-inline-links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <span>&middot;</span>
+            <a href="/terms.html">Terms of Service</a>
+            <span>&middot;</span>
+            <a href="/support.html">Support</a>
+          </div>
         </div>
-
-
-        <!-- Google Analytics Tag -->
-        <script>
-            var localAddrs = ["localhost", "127.0.0.1", ""];
-
-            // make sure we don't activate google analytics if the developer is
-            // inspecting the book locally...
-            if (localAddrs.indexOf(document.location.hostname) === -1) {
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-                ga('create', 'UA-146158796-1', 'auto');
-                ga('send', 'pageview');
-            }
-        </script>
-
-
-        <script>
-            window.playground_copyable = true;
-        </script>
-
-
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
-
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
-
-        <!-- Custom JS scripts -->
-
-
+      </footer>
     </div>
-    </body>
+  </div>
+</body>
 </html>
