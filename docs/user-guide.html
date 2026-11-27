@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Guide - Album Download</title>
+  <meta property="og:title" content="User Guide - Album Download">
+  <meta name="description" content="Detailed guide to Album Download features: album ordering, subfolder and filename templates, shared albums, original quality, resizing, cropping, and queue controls.">
+  <meta property="og:description" content="Detailed guide to Album Download features: album ordering, subfolder and filename templates, shared albums, original quality, resizing, cropping, and queue controls.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Album Download">
+  <meta property="og:image" content="https://albumdownload.ctaggart.com/albumdownload_icon_128.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/albumdownload_icon_128.png">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/styles.css?v=7">
+  <script>
+    if (["localhost", "127.0.0.1", ""].indexOf(window.location.hostname) === -1) {
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=G-6EJCM101V4";
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-6EJCM101V4");
+    }
+  </script>
+</head>
+<body>
+  <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle-input" aria-hidden="true">
+  <header class="mobile-topbar">
+    <label for="sidebar-toggle" class="sidebar-toggle-btn" title="Toggle navigation" aria-label="Toggle navigation">&#9776;</label>
+    <a href="/" class="brand">
+      <img src="/albumdownload_icon_128.png" alt="Album Download icon" class="brand-icon" width="28" height="28">
+      <span>Album Download</span>
+    </a>
+  </header>
+  <label for="sidebar-toggle" class="sidebar-backdrop" aria-hidden="true"></label>
+  <div class="app-shell">
+    <aside class="site-sidebar" aria-label="Table of contents">
+      <a href="/" class="sidebar-brand">
+        <img src="/albumdownload_icon_128.png" alt="Album Download icon" class="brand-icon" width="32" height="32">
+        <span>Album Download</span>
+      </a>
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <a href="/" class="sidebar-link">Home</a>
+        <a href="/getting-started.html" class="sidebar-link">Getting Started</a>
+        <a href="/user-guide.html" class="sidebar-link sidebar-link-active">User Guide</a>
+        <a href="/changelog.html" class="sidebar-link">Change Log</a>
+        <a href="/privacy.html" class="sidebar-link">Privacy Policy</a>
+        <a href="/terms.html" class="sidebar-link">Terms of Service</a>
+        <a href="/support.html" class="sidebar-link">Support</a>
+        <a href="/subscription.html" class="sidebar-link">Subscription</a>
+      </nav>
+    </aside>
+    <div class="site-content-wrap">
+      <main class="site-main">
+<div><header class="page-hero"><div class="container-narrow"><h1 class="page-title">User Guide</h1><p class="page-subtitle">Detailed overview of Album Download features, filename templates, resize options, and bulk download controls.</p></div></header><section class="section"><div class="container-narrow"><article class="prose-card" id="order-and-naming"><h2>Preserve Exact Album Order</h2><p>Album Download captures every photo and video in the exact sequence shown on the Google Photos album page and numbers files sequentially (001, 002, 003…) so folders, slideshows, digital photo frames, and print books stay in order when sorted by Name (A–Z).</p><h2>Album Subfolder &amp; Custom Filename Templates</h2><p>By default, <code>Save as</code> is set to <code>{{title}}/{{title}} {{index3}}</code>, which organizes each album into its own subfolder inside your browser's Downloads folder with a live filename preview before downloading. File extensions are added automatically.</p><ul><li><code>{{title}}</code> — Album title (for example, <code>Family Trip</code>). Remove <code>{{title}}/</code> to save files directly into Downloads without a subfolder.</li><li><code>{{index}}</code> — Unpadded item number (1, 2, 3…).</li><li><code>{{index2}}</code> — 2-digit zero-padded item number (01, 02…).</li><li><code>{{index3}}</code> — 3-digit zero-padded item number (001, 002…).</li><li><code>{{index4}}</code> — 4-digit zero-padded item number (0001, 0002…), recommended for albums with 1,000 or more items.</li><li><code>{{index5}}</code> — 5-digit zero-padded item number (00001, 00002…).</li></ul></article><article class="prose-card" id="albums-and-quality"><h2>Personal &amp; Shared Albums</h2><p>Works on both your own albums (<code>https://photos.google.com/album/...</code>) and shared link albums from family, friends, clients, or events (<code>https://photos.google.com/share/...</code>).</p><h2>Original-Size Photos &amp; Videos</h2><p>Downloads original-resolution photos and videos directly from Google's servers in their native formats (.jpg, .png, .heic, .heif, .webp, .mp4, .mov), preserving camera EXIF metadata.</p></article><article class="prose-card" id="resize-and-queue"><h2>Specify Size &amp; Cropping</h2><p>Enter Max width and/or Max height to scale photos down for digital photo frames, web galleries, or slideshows, or check Crop (with both Max width and Max height set) to crop photos to exact dimensions. Leave blank to download untouched originals.</p><h2>Pause, Resume &amp; Concurrent Downloads</h2><p>Handles large 1,000+ item albums with a live completed/total progress counter, Pause and Resume controls, and adjustable concurrency (1 to 6 simultaneous downloads via the Settings gear).</p></article></div></section></div>      </main>
+      <footer class="site-footer">
+        <div class="container-narrow footer-bottom">
+          <div>&copy; 2020&ndash;2026 Taggart Software LLC</div>
+          <div class="footer-inline-links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <span>&middot;</span>
+            <a href="/terms.html">Terms of Service</a>
+            <span>&middot;</span>
+            <a href="/support.html">Support</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
